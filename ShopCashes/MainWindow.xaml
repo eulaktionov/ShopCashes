@@ -16,11 +16,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <ListBox x:Name="cashes">
-            <ListBox.ItemTemplate>
+            <!--<ListBox.ItemTemplate>
                 <DataTemplate>
                     <local:CashControl/>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
+            </ListBox.ItemTemplate>-->
         </ListBox>
             
                  
