@@ -1,4 +1,3 @@
-
 using System.Diagnostics;
 
 namespace ShopCashesModel
@@ -9,13 +8,12 @@ namespace ShopCashesModel
 
         public Shop(int cashCount)
         {
-            Debug.WriteLine("!!!\n Shop created \n!!!");
+Debug.WriteLine("!!!\n Shop created \n!!!");
             for(int i = 0; i < cashCount; i++)
             {
                 Cashes.Add(new() { Id = i + 1 });
             }
-            Debug.WriteLine($"!!!\n {Cashes[Cashes.Count-1].Id} \n!!!");
-
+Debug.WriteLine($"!!!\n {Cashes[Cashes.Count-1].Id} \n!!!");
         }
     }
 

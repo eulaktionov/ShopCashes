@@ -6,7 +6,21 @@
         xmlns:local="clr-namespace:ShopCashes"
         mc:Ignorable="d"
         Title="Queues to the cash desks of the store" Height="450" Width="800">
-    <Grid>
+
+    <Window.Resources>
+        <ControlTemplate x:Key="CustomerTemplate" TargetType="Label">
+            <Border Background="Yellow" Width="20" Height="20" 
+                        BorderThickness="2" BorderBrush="Black"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" CornerRadius="20">
+                <ContentPresenter Margin="0" Width="20" Height="20" 
+                    TextBlock.TextAlignment="Center"
+                    />
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
+
+            <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -16,11 +30,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <ListBox x:Name="cashes">
-            <!--<ListBox.ItemTemplate>
+            <ListBox.ItemTemplate>
                 <DataTemplate>
                     <local:CashControl/>
                 </DataTemplate>
-            </ListBox.ItemTemplate>-->
+            </ListBox.ItemTemplate>
         </ListBox>
             
                  

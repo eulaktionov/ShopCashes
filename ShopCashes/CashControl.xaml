@@ -6,21 +6,45 @@
              xmlns:local="clr-namespace:ShopCashes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="CustomerTemplate" TargetType="Label">
+            <Border Width="20" Height="20" CornerRadius="20"
+                    Background="Yellow" BorderBrush="Black"
+                    BorderThickness="2">
+                <ContentPresenter
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    TextBlock.TextAlignment="Center"
+                    TextBlock.FontSize="12" Content="{Binding Path=Id}"/>
+            </Border>
+        </ControlTemplate>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="number" FontSize="24"   
-                           Width="60" Height="60"               
-                           HorizontalContentAlignment="Center"
-                           VerticalContentAlignment="Center"
-                           Background="Blue" Foreground="White"
-                           />
-        <WrapPanel x:Name="queue" Grid.Column="1" 
-                           Background="LightBlue"/>
-
+        <Label x:Name="number">
+            <Border Width="60" Height="40" CornerRadius="20"
+                Background="LightBlue"  BorderBrush="Black"
+                BorderThickness="4">
+                <ContentPresenter
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    TextBlock.TextAlignment="Center"
+                    TextBlock.FontSize="24" Content="{Binding Path=Id}"/>
+            </Border>
+        </Label>
+        <ListBox x:Name="queue" Grid.Column="1" Background="Lime"
+                 ItemsSource="{Binding Path=Customers}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label  Template="{StaticResource CustomerTemplate}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
     </Grid>
 </UserControl>
-
-<!--Content="{Binding Path=Id}-->
