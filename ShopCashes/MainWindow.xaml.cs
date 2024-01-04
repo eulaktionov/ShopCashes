@@ -18,14 +18,24 @@ namespace ShopCashes
     public partial class MainWindow : Window
     {
         public Shop shop = new(4);
+        int num;
+
         public MainWindow()
         {
             InitializeComponent();
             cashes.ItemsSource = shop.Cashes;
-            shop.Cashes[1].Customers.Enqueue(
+            hall.MouseLeftButtonDown += Hall_MouseLeftButtonDown;
+
+            shop.Cashes[1].Customers.Add(
                 new Customer(1, 10, 12, 5));
-            shop.Cashes[1].Customers.Enqueue(
+            shop.Cashes[1].Customers.Add(
                 new Customer(2, 14, 12, 8));
+        }
+
+        private void Hall_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            shop.Cashes[0].Customers.Add(
+                new Customer(num++, num * 10, num * 10 + num, 5));
         }
     }
 }

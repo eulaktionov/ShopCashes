@@ -36,29 +36,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-            
-                 
-        <!--<ListView x:Name="cashes" Grid.Column="0" Grid.Row="0" 
-                Margin="5">
-            <ListView.ItemTemplate>
-                <DataTemplate x:Name="CashTemp">
-                    <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="4*"/>
-                    </Grid.ColumnDefinitions>
-                        <Label x:Name="number" FontSize="24"   
-                           Width="60" Height="60"               
-                           HorizontalContentAlignment="Center"
-                           VerticalContentAlignment="Center"
-                           Background="Blue" Foreground="White"
-                           Content="{Binding Path=Id}"/>
-                    <ListBox x:Name="queue" Grid.Column="1" 
-                           Background="LightBlue"/>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
         <Border Grid.Column="0" Grid.Row="1"
                 BorderThickness="10"
                 BorderBrush="LightGreen"/>
