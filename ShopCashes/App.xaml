@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:ShopCashes"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ControlTemplate x:Key="CustomerTemplate" TargetType="Label">
+            <Border Width="20" Height="20" CornerRadius="20"
+                    Background="Yellow" BorderBrush="Black"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    BorderThickness="2">
+                <ContentPresenter
+                    TextBlock.TextAlignment="Center"
+                    TextBlock.FontSize="12" Content="{Binding Path=Id}"/>
+            </Border>
+        </ControlTemplate>
     </Application.Resources>
 </Application>
