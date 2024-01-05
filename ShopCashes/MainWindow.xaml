@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Queues to the cash desks of the store" Height="450" Width="800">
 
-    <Window.Resources>
+    <!--<Window.Resources>
         <ControlTemplate x:Key="CustomerTemplate" TargetType="Label">
             <Border Background="Yellow" Width="20" Height="20" 
                         BorderThickness="2" BorderBrush="Black"
@@ -18,9 +18,9 @@
                     />
             </Border>
         </ControlTemplate>
-    </Window.Resources>
+    </Window.Resources>-->
 
-            <Grid>
+    <Grid x:Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
