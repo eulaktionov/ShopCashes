@@ -11,14 +11,16 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="number">
-            <Border Width="60" Height="40" CornerRadius="20"
+        <Label x:Name="number" FontSize="24">
+            <Border Width="80" Height="40" CornerRadius="20"
                 Background="LightBlue"  BorderBrush="Black"
                 BorderThickness="4">
-                <ContentPresenter
-                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                    TextBlock.TextAlignment="Center"
-                    TextBlock.FontSize="24" Content="{Binding Path=Id}"/>
+                <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="{Binding Path=Id}" />
+                    <TextBlock Text=" : " />
+                    <TextBlock Text="{Binding Path=Downtime}" />
+                </StackPanel>
             </Border>
         </Label>
         <ListBox x:Name="queue" Grid.Column="1" Background="Lime"

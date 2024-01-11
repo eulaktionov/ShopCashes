@@ -20,7 +20,6 @@ namespace ShopCashes
     {
         public Shop shop;
         Label newCustomer;
-        int num;
 
         public MainWindow()
         {
@@ -31,20 +30,21 @@ namespace ShopCashes
                 CashCount = 4,
                 
                 MinNextCustomerInterval = 1,
-                MaxNextCustomerInterval = 5,
+                MaxNextCustomerInterval = 3,
 
-                MinBuyingInterval = 5,
-                MaxBuyingInterval = 15,
+                MinBuyingInterval = 3,
+                MaxBuyingInterval = 9,
 
                 MinPayingInterval = 1,
                 MaxPayingInterval = 3,
             };
-            shop.Initialize();
             shop.OnCustomerArrival += Shop_OnCustomerArrival;
             shop.OnCustomerIntoHall += Shop_OnCustomerIntoHalll;
             shop.OnCustomerToCash += Shop_OnCustomerToCash;
 
             cashes.ItemsSource = shop.Cashes;
+            data.DataContext = this.shop;
+            shop.Run();
         }
 
         private async void Shop_OnCustomerArrival(object? sender, Customer e)
@@ -58,10 +58,8 @@ namespace ShopCashes
             };
             newCustomer.DataContext = e;
             Grid.SetColumn(newCustomer, 0);
-            Grid.SetRow(newCustomer, 1);
+            Grid.SetRow(newCustomer, 2);
             grid.Children.Add(newCustomer);
-
-            Debug.WriteLine("???");
         }
 
         private async void Shop_OnCustomerIntoHalll(object? sender, Customer e)
@@ -74,8 +72,6 @@ namespace ShopCashes
             Canvas.SetLeft(newCustomer, x);
             Canvas.SetTop(newCustomer, y);
             hall.Children.Add(newCustomer);
-
-            Debug.WriteLine("!!!");
         }
 
         private void Shop_OnCustomerToCash(object? sender, Customer e)

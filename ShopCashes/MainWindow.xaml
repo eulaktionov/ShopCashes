@@ -6,19 +6,15 @@
         xmlns:local="clr-namespace:ShopCashes"
         mc:Ignorable="d"
         Title="Queues to the cash desks of the store" Height="450" Width="800">
-
-    <!--<Window.Resources>
-        <ControlTemplate x:Key="CustomerTemplate" TargetType="Label">
-            <Border Background="Yellow" Width="20" Height="20" 
-                        BorderThickness="2" BorderBrush="Black"
-                    HorizontalAlignment="Center" 
-                    VerticalAlignment="Center" CornerRadius="20">
-                <ContentPresenter Margin="0" Width="20" Height="20" 
-                    TextBlock.TextAlignment="Center"
-                    />
+    
+    <Window.Resources>
+        <ControlTemplate x:Key="TextCount" TargetType="Label">
+            <Border BorderThickness="5" BorderBrush="Black"
+                        Background="Yellow" TextBlock.FontSize="24">
+                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center"/>
             </Border>
         </ControlTemplate>
-    </Window.Resources>-->
+    </Window.Resources>
 
     <Grid x:Name="grid">
         <Grid.ColumnDefinitions>
@@ -26,20 +22,53 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="cashes">
+        <Border Grid.Column="0" Grid.Row="0"
+                BorderThickness="10"
+                BorderBrush="LightBlue">
+            <Grid x:Name="data">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!--<Border Grid.Column="0" BorderThickness="5" BorderBrush="Black"
+                        Background="Yellow">
+                    <TextBlock FontSize="24"
+                    Text="{Binding CustomersCount}"
+                           HorizontalAlignment="Center" />
+                </Border>-->
+                <Label Grid.Column="0" Template="{StaticResource TextCount}" Content="{Binding CustomersCount}"/>
+                <Label Grid.Column="1" Template="{StaticResource TextCount}" Content="{Binding CustomersWaitingTime}"/>
+                <Label Grid.Column="2" Template="{StaticResource TextCount}" Content="{Binding CashesDowntime}"/>
+                <!--<Border Grid.Column="1" BorderThickness="5" BorderBrush="Black"
+                        Background="Yellow">
+                    <TextBlock FontSize="24"
+                    Text="{Binding CustomersWaitingTime}"
+                           HorizontalAlignment="Center" />
+                </Border>
+                <Border Grid.Column="2" BorderThickness="5" BorderBrush="Black"
+                        Background="Yellow">
+                    <TextBlock FontSize="24"
+                    Text="{Binding CashesDowntime}"
+                           HorizontalAlignment="Center" />
+                </Border>-->
+            </Grid>
+        </Border>
+        <ListBox x:Name="cashes" Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <local:CashControl/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Border Grid.Column="0" Grid.Row="1"
+        <Border Grid.Column="0" Grid.Row="2"
                 BorderThickness="10"
                 BorderBrush="LightGreen"/>
-        <Canvas x:Name="hall" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+        <Canvas x:Name="hall" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"
                 Margin="5" Background="LightGray"/>
     </Grid>
 </Window>

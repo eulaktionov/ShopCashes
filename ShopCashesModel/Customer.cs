@@ -8,21 +8,19 @@ namespace ShopCashesModel
 {
     public class Customer
     {
-        public int Id { get; }
-        public int ArrivalTime { get; }
-        public int CashboxTime { get; }
+        public int Id { get; init; }
+        public int ArrivalTime { get; init; }
+        public int CashboxTime { get; init; }
         public int PayingInterval { get; set; }
-        public int WaitingInterval { get; set; }    // 0
+        public int WaitingInterval { get; } 
 
-        public string Title => $"{Id} : {CashboxTime}";
-
-        public Customer(int id, int arrivalTime,
-            int cashboxTime, int payingInterval)
-        {
-            Id = id;
-            ArrivalTime = arrivalTime;
-            CashboxTime = cashboxTime;
-            PayingInterval = payingInterval;
-        }
+        //public Customer(int id, int arrivalTime,
+        //    int cashboxTime, int payingInterval)
+        //{
+        //    Id = id;
+        //    ArrivalTime = arrivalTime;
+        //    CashboxTime = cashboxTime;
+        //    PayingInterval = payingInterval;
+        //}
     }
 }
